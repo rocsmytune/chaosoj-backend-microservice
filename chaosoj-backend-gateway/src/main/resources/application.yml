@@ -3,3 +3,24 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    gateway:
+      routes:
+        - id: chaosoj-backend-user-service
+          uri: lb://chaosoj-backend-user-service
+          predicates:
+            - Path=/api/user/**
+        - id: chaosoj-backend-question-service
+          uri: lb://chaosoj-backend-question-service
+          predicates:
+            - Path=/api/question/**
+        - id: chaosoj-backend-judge-service
+          uri: lb://chaosoj-backend-judge-service
+          predicates:
+            - Path=/api/judge/**
+  application:
+    name: chaosoj-backend-gateway
+  main:
+    web-application-type: reactive
+
+server:
+  port: 8101
