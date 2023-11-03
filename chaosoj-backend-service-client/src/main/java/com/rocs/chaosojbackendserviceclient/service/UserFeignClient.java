@@ -21,7 +21,7 @@ import static com.rocs.chaosojbackendcommon.constant.UserConstant.USER_LOGIN_STA
  *
  * @author <a href="https://github.com/rocsmytune">rocsmyzune</a>
  */
-@FeignClient(name = "chaos-oj-backend-user-service", path = "/api/user/inner")
+@FeignClient(name = "chaosoj-backend-user-service", path = "/api/user/inner")
 public interface UserFeignClient {
 
 //    userService.getByld(userld)

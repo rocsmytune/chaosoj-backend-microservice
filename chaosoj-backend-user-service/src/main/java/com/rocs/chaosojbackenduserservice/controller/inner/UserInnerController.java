@@ -4,6 +4,7 @@ import com.rocs.chaosojbackendmodel.model.entity.User;
 import com.rocs.chaosojbackendserviceclient.service.UserFeignClient;
 import com.rocs.chaosojbackenduserservice.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,7 +12,8 @@ import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.List;
 
-@RestController("/inner")
+@RestController
+@RequestMapping("/inner")
 public class UserInnerController implements UserFeignClient {
 
     @Resource
