@@ -64,3 +64,5 @@ mybatis-plus:
 # ??????
 codesandbox:
   type: remote
+knife4j:
+  enable: true

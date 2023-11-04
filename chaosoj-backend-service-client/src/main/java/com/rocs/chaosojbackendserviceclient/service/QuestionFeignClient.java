@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 * @description 针对表【question(题目)】的数据库操作Service
 * @createDate 2023-08-07 20:58:00
 */
-@FeignClient(name = "chaos-oj-backend-question-service", path = "/api/question/inner")
+@FeignClient(name = "chaosoj-backend-question-service", path = "/api/question/inner")
 public interface QuestionFeignClient {
 
     /**

@@ -1,0 +1,54 @@
+version: '3'
+services:
+  yuoj-backend-gateway:
+    container_name: chaosoj-backend-gateway
+    build:
+      context: ./chaosoj-backend-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8101:8101"
+    networks:
+      - mynetwork
+
+  yuoj-backend-user-service:
+    container_name: chaosoj-backend-user-service
+    build:
+      context: ./chaosoj-backend-user-service
+      dockerfile: Dockerfile
+    ports:
+      - "8102:8102"
+    networks:
+      - mynetwork
+    depends_on:
+      - chaosoj-backend-gateway
+
+  yuoj-backend-question-service:
+    container_name: chaosoj-backend-question-service
+    build:
+      context: ./chaosoj-backend-question-service
+      dockerfile: Dockerfile
+    ports:
+      - "8103:8103"
+    networks:
+      - mynetwork
+    depends_on:
+      - chaosoj-backend-user-service
+      - chaosoj-backend-gateway
+
+  chaosoj-backend-judge-service:
+    container_name: chaosoj-backend-judge-service
+    build:
+      context: ./chaosoj-backend-judge-service
+      dockerfile: Dockerfile
+    ports:
+      - "8104:8104"
+    networks:
+      - mynetwork
+    depends_on:
+      - chaosoj-backend-user-service
+      - chaosoj-backend-question-service
+      - chaosoj-backend-gateway
+
+# 网络，不定义的话就是默认网络
+networks:
+  mynetwork:

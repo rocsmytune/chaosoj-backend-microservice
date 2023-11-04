@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * 判题服务
  */
-@FeignClient(name = "chaos-oj-backend-judge-service", path = "/api/judge/inner")
+@FeignClient(name = "chaosoj-backend-judge-service", path = "/api/judge/inner")
 public interface JudgeFeignClient {
 
     /**
