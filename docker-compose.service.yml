@@ -1,6 +1,6 @@
 version: '3'
 services:
-  yuoj-backend-gateway:
+  chaosoj-backend-gateway:
     container_name: chaosoj-backend-gateway
     build:
       context: ./chaosoj-backend-gateway
@@ -10,7 +10,7 @@ services:
     networks:
       - mynetwork
 
-  yuoj-backend-user-service:
+  chaosoj-backend-user-service:
     container_name: chaosoj-backend-user-service
     build:
       context: ./chaosoj-backend-user-service
@@ -22,7 +22,7 @@ services:
     depends_on:
       - chaosoj-backend-gateway
 
-  yuoj-backend-question-service:
+  chaosoj-backend-question-service:
     container_name: chaosoj-backend-question-service
     build:
       context: ./chaosoj-backend-question-service
